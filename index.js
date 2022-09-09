@@ -255,6 +255,13 @@ app.post('/review', async(req,res) => {
   res.send(result);
 })
 // add reveiw end 
+// add reveiw start 
+app.post('/Search', async(req,res) => {
+  const reviews = req.body;
+  const result = await servicesCollection.insertOne(reviews);
+  res.send(result);
+})
+// add reveiw end 
 // show all reveiw
 app.get('/reviews',async(req, res) => {
   const review = await reviewCollection.find().toArray();
